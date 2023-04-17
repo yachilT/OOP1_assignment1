@@ -1,8 +1,8 @@
-package Scalars;
+package scalars;
 
-public class Integer implements Scalar {
+public class IntegerScalar implements Scalar {
     private int number;
-    public Integer(int number) {
+    public IntegerScalar(int number) {
         this.number = number;
     }
 
@@ -13,11 +13,11 @@ public class Integer implements Scalar {
         return s.add(this);
     }
 
-    public Scalar add(Integer i) {
-        return new Integer(this.number + i.number);
+    public Scalar add(IntegerScalar i) {
+        return new IntegerScalar(this.number + i.number);
     }
 
-    public Scalar add(Rational r) {
+    public Scalar add(RationalScalar r) {
         return null;
     }
 
@@ -25,20 +25,20 @@ public class Integer implements Scalar {
        return s.mult(this);
     }
 
-    public Scalar mult(Integer s) {
-        return new Integer(this.number + s.number);
+    public Scalar mult(IntegerScalar s) {
+        return new IntegerScalar(this.number + s.number);
     }
 
-    public Scalar mult(Rational r) {
+    public Scalar mult(RationalScalar r) {
         return null;
     }
 
     public Scalar neg() {
-        return new Integer(-this.number);
+        return new IntegerScalar(-this.number);
     }
 
     public Scalar power(int exponent) {
-        Scalar powered = new Integer(1);
+        Scalar powered = new IntegerScalar(1);
         for (int i = 0; i < exponent; i++) {
             powered = this.mult(powered);
         }
@@ -57,4 +57,5 @@ public class Integer implements Scalar {
     public String toString() {
         return this.number + "";
     }
+
 }

@@ -1,12 +1,12 @@
-package Scalars;
+package scalars;
 
 public interface Scalar {
     public Scalar add(Scalar s);
-    public Scalar add(Integer i);
-    public Scalar add(Rational r);
+    public Scalar add(IntegerScalar i);
+    public Scalar add(RationalScalar r);
     public Scalar mult(Scalar s);
-    public Scalar mult(Integer s);
-    public Scalar mult(Rational r);
+    public Scalar mult(IntegerScalar s);
+    public Scalar mult(RationalScalar r);
 
     public Scalar neg();
 
