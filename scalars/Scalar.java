@@ -12,4 +12,5 @@ public interface Scalar {
 
     public Scalar power(int exponent);
     public int sign();
+    public double getValue();
 }

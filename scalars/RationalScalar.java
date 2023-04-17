@@ -13,6 +13,11 @@ public class RationalScalar implements Scalar{
         this.numerator = numerator / gcd;
         this.denominator = denominator / gcd;
     }
+
+    public RationalScalar(String str) {
+        this(new IntegerScalar(str.split("/")[0]).getNumber(),
+                new IntegerScalar(str.split("/")[1]).getNumber());
+    }
     private int gcd(int n1, int n2) {
         n1 = n1 < 0 ? -n1: n1;
         n2 = n2 < 0 ? -n2: n2;
@@ -71,9 +76,19 @@ public class RationalScalar implements Scalar{
             return 1;
         return -1;
     }
-
     public RationalScalar reduce() {
         int gcd = this.gcd(this.numerator, this.denominator);
         return new RationalScalar(this.numerator / gcd, this.denominator / gcd);
+    }
+    public double getValue(){
+        return (double) numerator/denominator;
+    }
+    public boolean equals(Object o){
+        if(o instanceof Scalar)
+            return ((Scalar)o).getValue() == getValue();
+        return false;
+    }
+    public String toString(){
+        return numerator + "/" + denominator;
     }
 }

@@ -1,9 +1,8 @@
-package Nomials;
+package nomials;
 import scalars.*;
-
 public class Monomial {
     private int exponent;
-    private Scalar coefficient;
+    private scalars.Scalar coefficient;
     public Monomial(int exponent, Scalar coefficient){
         this.coefficient = coefficient;
         this.exponent = exponent;
@@ -30,6 +29,8 @@ public class Monomial {
         Scalar zero = new IntegerScalar(0);
         if(this.coefficient.equals(zero))
             return "0";
+        else if(this.exponent == 0)
+            return this.coefficient.toString();
         else if(this.coefficient.equals(one))
             return "x^"+this.exponent;
         else

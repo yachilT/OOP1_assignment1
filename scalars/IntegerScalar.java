@@ -5,6 +5,9 @@ public class IntegerScalar implements Scalar {
     public IntegerScalar(int number) {
         this.number = number;
     }
+    public IntegerScalar(String str) {
+        this.number = Integer.parseInt(str);
+    }
 
     public int getNumber() {
         return this.number;
@@ -53,6 +56,14 @@ public class IntegerScalar implements Scalar {
         return 0;
     }
 
+    public double getValue() {
+        return number;
+    }
+    public boolean equals(Object o){
+        if(o instanceof Scalar)
+            return ((Scalar)o).getValue() == getValue();
+        return false;
+    }
     @Override
     public String toString() {
         return this.number + "";
